@@ -1,0 +1,6 @@
+[submodule "SEAL"]
+	path = SEAL
+	url = https://github.com/laiKwunSing/SEAL.git
+[submodule "rpclib"]
+	path = rpclib
+	url = https://github.com/rpclib/rpclib.git
