@@ -104,11 +104,11 @@ void Set(rpc::client& client, stringstream& ss, shared_ptr<seal::Encryptor> encr
   cout << "Succeed!" << endl;
 }
 
-void Get(rpc::client& client, stringstream& ss, shared_ptr<seal::Decryptor> decryptor, shared_ptr<seal::SEALContext> context, const string& store) {
+void Avg(rpc::client& client, stringstream& ss, shared_ptr<seal::Decryptor> decryptor, shared_ptr<seal::SEALContext> context, const string& store) {
   string product;
   ss >> product;
-  cout << "Calling Rpc Get(" << product << ")" << endl;
-  auto [stream, cnt] = client.call("Get", store, product).as<std::pair<vector<unsigned char>, int>>();
+  cout << "Calling Rpc Avg(" << product << ")" << endl;
+  auto [stream, cnt] = client.call("Avg", store, product).as<std::pair<vector<unsigned char>, int>>();
   double res = 0.0;
   if (cnt > 0) {
     Ciphertext ciphertext;
@@ -160,8 +160,8 @@ int main(int argc, char* argv[]) {
       break;
     } else if (task == "set") {
       Set(client, ss, encryptor, store);
-    } else if (task == "get") {
-      Get(client, ss, decryptor, context, store);
+    } else if (task == "avg") {
+      Avg(client, ss, decryptor, context, store);
     } else {
       cout << "Invalid input" << endl;
     }
