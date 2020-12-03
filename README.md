@@ -1,7 +1,7 @@
 # Homomorphism-Encryption-KV-Store-Client
 
 ## Install
-Make sure you have the latest version of gcc and cmake before proceeding
+Make sure you have the latest version of <strong>gcc</strong>, <strong>cmake</strong>, <strong>make</strong>, and root privileged before proceeding
 
 ### Make sure you clone all the submodules (SEAL and rpclib)
 ```
