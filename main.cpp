@@ -135,7 +135,7 @@ int main(int argc, char* argv[]) {
 
   // Login to the server
   string store(argv[1]), password(argv[2]);
-  rpc::client client("3.12.237.48", 8081);
+  rpc::client client("127.0.0.1", 8081);
   if (!client.call("Login", store, Hash(password.data(), password.size(), 0)).as<bool>()) {
     cout << "Failed to login" << endl;
     return 0;
