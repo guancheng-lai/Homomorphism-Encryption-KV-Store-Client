@@ -8,7 +8,7 @@
 using namespace std;
 using namespace seal;
 
-double hexToDecimal(const std::string& input) {
+double HexToDecimal(const std::string& input) {
   std::stringstream ss;
   ss << std::hex << input;
   double res;
@@ -16,7 +16,7 @@ double hexToDecimal(const std::string& input) {
   return res;
 }
 
-void init(std::shared_ptr<seal::Evaluator>& evaluator,
+void Init(std::shared_ptr<seal::Evaluator>& evaluator,
           std::shared_ptr<seal::Decryptor>& decryptor,
           std::shared_ptr<seal::Encryptor>& encryptor,
           std::shared_ptr<seal::SEALContext>& context) {
@@ -58,8 +58,7 @@ void init(std::shared_ptr<seal::Evaluator>& evaluator,
   fs_sk.close();
 }
 
-std::vector<unsigned char> to_vector(std::stringstream& ss)
-{
+std::vector<unsigned char> ToVector(std::stringstream& ss) {
   // discover size of data in stream
   ss.seekg(0, std::ios::beg);
   auto bof = ss.tellg();
@@ -76,8 +75,7 @@ std::vector<unsigned char> to_vector(std::stringstream& ss)
   return v;
 }
 
-std::stringstream to_stream(std::vector<unsigned char> const& v)
-{
+std::stringstream ToStream(std::vector<unsigned char> const& v) {
   std::stringstream ss;
   ss.write((char const*)v.data(), std::streamsize(v.size()));
   return ss;
